@@ -21,6 +21,69 @@ Developed as part of an MLOps-focused portfolio project, it includes training no
 
 ![Streamlit App Screenshot](artifacts/live_app.png)
 
+---
+
+## 📊 Modeling Strategy & Results
+
+We initially trained and evaluated multiple models on the full dataset (`premiums.xlsx`):
+
+| Model              | Train Score | Test Score | RMSE     |
+|-------------------|-------------|------------|----------|
+| Linear Regression | 0.9282      | 0.9280     | 2272.80  |
+| Ridge Regression  | 0.9282      | 0.9280     | 2272.81  |
+| XGBoost           | 0.9782      | 0.9782     | 1250.22  |
+| XGBoost + Tuning  | 0.9809      | 0.9809     | —        |
+
+### 🔍 Error Analysis
+
+- **30% of predictions** had a deviation greater than ±10%.
+- These *extreme errors* were **mostly concentrated in younger customers (< 25 years old)**.
+- Based on the age distribution and error segmentation, we decided to split the data into:
+  - **Youth (≤25)** and
+  - **Adults (>25)**
+
+---
+
+### 🧠 Segmented Modeling Results
+
+#### 📈 Adults
+| Model         | Test Score | Extreme Errors |
+|---------------|------------|----------------|
+| XGBoost       | 0.9948     | 0.3%           |
+| Ridge         | 0.9538     | —              |
+
+➡️ Performance is excellent; no further refinement needed.
+
+#### 📉 Youth
+| Model                  | Test Score | Extreme Errors |
+|------------------------|------------|----------------|
+| Linear Regression      | 0.6048     | 73%            |
+| XGBoost                | 0.5997     | 73%            |
+
+➡️ Poor generalization. No clear pattern from existing features.
+
+---
+
+### ➕ Feature Addition (Genetical Risk)
+
+- Business provided a new feature: `genetical_risk` (for youth segment).
+- After retraining with `genetical_risk`:
+
+| Model                  | Test Score | Extreme Errors |
+|------------------------|------------|----------------|
+| Linear Regression      | 0.9887     | 2%             |
+| XGBoost                | 0.9879     | 2%             |
+
+✅ Linear Regression was selected for its explainability.
+
+---
+
+### 💾 Deployment Strategy
+
+- Models serialized using `joblib` for consistent loading
+- `scaler` objects exported alongside each model
+- Unified prediction interface handles both age groups internally
+
 ## 🗂️ Project Structure
 
 ```bash
