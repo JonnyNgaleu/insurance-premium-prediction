@@ -4,8 +4,7 @@ A predictive machine learning model to estimate health insurance premiums based 
 Developed as part of an MLOps-focused portfolio project, it includes training notebooks, model artifacts, a Streamlit web interface, and is cloud-deployment ready.
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://insurance-cost-predictor.streamlit.app/)
-
-[![CI](https://github.com/JonnyNgaleu/insurance-premium-prediction/actions/workflows/ci.yml/badge.svg)]
+![CI](https://github.com/JonnyNgaleu/insurance-premium-prediction/actions/workflows/ci.yml/badge.svg)
 ---
 
 ## 🚀 Key Features
@@ -26,24 +25,35 @@ Developed as part of an MLOps-focused portfolio project, it includes training no
 
 ```bash
 insurance-premium-prediction/
-├── app/                    # Streamlit web app
+├── .github/
+│   └── workflows/
+│       └── ci.yml                 # GitHub Actions CI workflow
+├── app/                           # Streamlit web app
 │   ├── main.py
 │   └── prediction_helper.py
-├── artifacts/              # Trained model + scaler (joblib)
+├── artifacts/                     # Trained models + visual assets
 │   ├── model_adults.joblib
 │   ├── model_youth.joblib
 │   ├── scaler_adults.joblib
-│   └── scaler_youth.joblib
+│   ├── scaler_youth.joblib
+│   └── live_app.png               # Screenshot for live app
 ├── data/
-│   └── raw/                # Raw Excel files used for training
-├── notebooks/             # Notebooks for EDA, training, evaluation
+│   └── raw/                       # Raw Excel files used for training
+│       ├── premiums.xlsx
+│       ├── premiums_adults.xlsx
+│       ├── premiums_youth.xlsx
+│       └── premiums_youth_with_gr.xlsx
+├── notebooks/                    # Jupyter notebooks (EDA, training)
 │   ├── 01_global_model_training.ipynb
 │   ├── 02_data_segmentation.ipynb
 │   ├── 03_model_training_youth.ipynb
 │   ├── 04_model_training_adults.ipynb
 │   ├── 05_model_training_youth_with_genetical_risk.ipynb
 │   └── 06_model_training_adults_with_genetical_risk.ipynb
-├── requirements.txt        # Python dependencies
+├── tests/                         # Unit tests (pytest)
+│   └── test_prediction.py
+├── .gitignore
+├── requirements.txt               # Python dependencies
 ├── LICENSE
-└── README.md               # This file
+└── README.md
 
