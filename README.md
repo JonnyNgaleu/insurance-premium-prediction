@@ -17,6 +17,30 @@ Developed as part of an MLOps-focused portfolio project, it includes training no
 
 ---
 
+## 📦 Installation & Usage
+
+### 🔧 Run locally
+
+#### 1. Clone the repo
+```bash
+git clone https://github.com/JonnyNgaleu/insurance-premium-prediction.git
+cd insurance-premium-prediction
+```
+#### 2. Create virtual env
+```bash
+python -m venv venv
+source venv/bin/activate  # on Windows: venv\Scripts\activate
+```
+#### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+#### 4. Run the app
+```bash
+streamlit run app/main.py
+```
+---
+
 ## 🖼️ Live App Preview
 
 ![Streamlit App Screenshot](artifacts/live_app.png)
