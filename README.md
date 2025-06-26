@@ -5,6 +5,7 @@ Developed as part of an MLOps-focused portfolio project, it includes training no
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://insurance-cost-predictor.streamlit.app/)
 
+[![CI](https://github.com/JonnyNgaleu/insurance-premium-prediction/actions/workflows/ci.yml/badge.svg)]
 ---
 
 ## 🚀 Key Features
@@ -16,6 +17,10 @@ Developed as part of an MLOps-focused portfolio project, it includes training no
 - 📁 Modular and clean repository layout
 
 ---
+
+## 🖼️ Live App Preview
+
+![Streamlit App Screenshot](artifacts/live_app.png)
 
 ## 🗂️ Project Structure
 
