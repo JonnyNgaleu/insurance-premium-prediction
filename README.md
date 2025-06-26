@@ -1,6 +1,9 @@
 # 🧠 Health Insurance Premium Prediction
+
 A predictive machine learning model to estimate health insurance premiums based on user attributes such as age, BMI, smoking status, and medical history.  
 Developed as part of an MLOps-focused portfolio project, it includes training notebooks, model artifacts, a Streamlit web interface, and is cloud-deployment ready.
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://insurance-cost-predictor.streamlit.app/)
 
 ---
 
